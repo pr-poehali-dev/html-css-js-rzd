@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -30,6 +31,7 @@ interface Seat {
 }
 
 const Index = () => {
+  const navigate = useNavigate();
   const [from, setFrom] = useState("");
   const [to, setTo] = useState("");
   const [date, setDate] = useState<Date>();
@@ -126,7 +128,7 @@ const Index = () => {
               </div>
             </div>
             <nav className="hidden md:flex gap-6">
-              <Button variant="ghost" className="text-white hover:bg-blue-600">
+              <Button variant="ghost" className="text-white hover:bg-blue-600" onClick={() => navigate("/my-tickets")}>
                 Мои билеты
               </Button>
               <Button variant="ghost" className="text-white hover:bg-blue-600">
